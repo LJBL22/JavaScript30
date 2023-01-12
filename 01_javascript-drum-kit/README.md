@@ -2,6 +2,9 @@
 
 ![console](./screenshot_finished.png)
 
+## :dart: [DEMO](https://ljbl22.github.io/JavaScript30/01_javascript-drum-kit/)
+
+
 ## :writing_hand: Highlights
 
 - listen to **window** by the action "keydown"
