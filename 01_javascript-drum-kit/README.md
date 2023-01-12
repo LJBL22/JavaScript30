@@ -1,13 +1,10 @@
-# 01_javascript-drum-kit
+# 01 JavaScript Drum Kit :woman_juggling: [DEMO](https://ljbl22.github.io/JavaScript30/01_javascript-drum-kit/)
 
 ![console](./screenshot_finished.png)
 
-## :dart: [DEMO](https://ljbl22.github.io/JavaScript30/01_javascript-drum-kit/)
-
-
 ## :writing_hand: Highlights
 
-- listen to **window** by the action "keydown"
+- listen to **window** by the action `"keydown"`
 - use **{keyCode}** to replace `event.keyCode`
 - use 2 skills here:
  ```JavaScript
@@ -75,7 +72,7 @@
 
 ### 2. Problems
 
-- Yet it causes a small problem, I noticed that when you hold the key for more than the transition time (which is 0.7s in this case), the class "playing" would never be removed. But if you remove the line `if (propertyName !== "transform") return;`, problem solved.
+- Yet it causes a small problem, I noticed that when you hold the key for more than the transition time (which is 0.7s in this case), the class `"playing"` would never be removed. But if you remove the line `if (propertyName !== "transform") return;`, problem solved.
 
 - Here is a [discussion](https://stackoverflow.com/questions/43794891/remove-class-on-keypress-after-key-hold-transitionend-weird-behavior) about this behavior. All three answers work.
 
