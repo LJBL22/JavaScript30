@@ -41,8 +41,6 @@
         color: white;
         text-align: center;
         align-items: center;
-        /* Safari transitionend event.propertyName === flex */
-        /* Chrome + FF transitionend event.propertyName === flex-grow */
         transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
           flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
         font-size: 20px;
@@ -141,6 +139,47 @@
       </div>
     </div>
 
-    <script></script>
+    <script>
+      const panels = document.querySelectorAll('.panel');
+
+      // // function toggleOpen 兩種寫法
+      // // method 1: 原始 Wes Bros 效果
+      // function toggleOpen() {
+      //   this.classList.toggle('open');
+      // }
+
+      // method 2: 點擊第二個時會自動關閉先前開啟的
+      let currentOpenPanel = null; // 保存當前打開的 panel
+
+      function toggleOpen() {
+        if (currentOpenPanel === this) {
+          // 若當下點擊為先前底開的 panel
+          this.classList.remove('open'); // 關閉當下的 panel
+          currentOpenPanel = null; // 重置
+        } else {
+          if (currentOpenPanel) {
+            // true = 值非 null = 若當下有打開的 panel
+            currentOpenPanel.classList.remove('open'); // 關閉已開的 panel
+          }
+
+          this.classList.add('open'); // 打開所點擊的 panel
+          currentOpenPanel = this; // 更新值為當下打開的 panel
+        }
+      }
+
+      function toggleActive(e) {
+        // console.log(e.propertyName);
+        //safari has the same value as other browsers
+        if (e.propertyName.includes('flex-grow')) {
+          this.classList.toggle('open-active');
+        }
+      }
+
+      // 在父層掛監聽器
+      panels.forEach((panel) => panel.addEventListener('click', toggleOpen));
+      panels.forEach((panel) =>
+        panel.addEventListener('transitionend', toggleActive)
+      );
+    </script>
   </body>
 </html>
